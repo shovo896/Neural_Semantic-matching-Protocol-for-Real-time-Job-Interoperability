@@ -1,11 +1,10 @@
 import fitz 
-
+import stream 
 import os 
 from dotenv import load_dotenv 
 load_dotenv()
 
-
-def extract_text_from_pdf(uploaded_file):
+'''def extract_text_from_pdf(uploaded_file):
     """
     Extracts text from a PDF file.
 
@@ -19,6 +18,10 @@ def extract_text_from_pdf(uploaded_file):
                 text += page.get_text() 
     except Exception as e: 
         print(f"Error extracting text from {uploaded_file}: {e}")
-    return text
+    return text'''
+    
+    
+    doc = fitz.open(stream=uploaded_file.read(), filetype="pdf")
+    
 
 
