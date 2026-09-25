@@ -30,7 +30,8 @@ load_dotenv()
 
 
 
-def ask_openai(prompt, model="gpt-oss", temperature=0.7, max_tokens=150):
+
+def ask_openai(prompt, model="gpt-oss", temperature=0.7, max_tokens=500):
     """
     Sends a prompt to the OpenAI API and returns the response.
 
@@ -42,6 +43,18 @@ def ask_openai(prompt, model="gpt-oss", temperature=0.7, max_tokens=150):
     Returns:
         The response from the OpenAI API.
     """
+    import openai
+    openai.api_key = os.getenv("OPENAI_API_KEY")
+    response = openai.Completion.create(
+        engine=model,
+        prompt=prompt,
+        temperature=temperature,
+        messages=[{"role": "user", "content": prompt}], 
+        max_tokens=max_tokens
+    )
+    return response.choices[0].text.strip()
+    
+    
 
 
 
