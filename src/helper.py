@@ -51,11 +51,8 @@ def ask_openai(prompt, model="gpt-oss", temperature=0.7, max_tokens=500):
         The response from the OpenAI API.
     """
 
-    openai.api_key = os.getenv("OPENAI_API_KEY")
-    response = openai.Completion.create(
-        engine=model,
-        prompt=prompt,
-        temperature=temperature,
+    response = client.chat.completions.create(
+        model=model,
         messages=[{"role": "user", "content": prompt}], 
         max_tokens=max_tokens
     )
