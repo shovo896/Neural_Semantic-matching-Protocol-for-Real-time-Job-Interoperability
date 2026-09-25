@@ -75,6 +75,22 @@ def fetch_linkedin_job(search_query, location="Bangladesh", rows=60):
         A list of job listings, where each listing is a dictionary containing job details.
     """
     # This is a placeholder implementation. You would need to implement the actual LinkedIn API calls here.
+    pass 
+
+
+def fetch_naukri_job(search_query, location="Bangladesh", rows=60):
+    """
+    Fetches job listings from Naukri based on the search query and location.
+
+    Args:
+        search_query: The job title or keywords to search for.
+        location: The location to search for jobs in.
+        rows: The number of job listings to fetch (default is 60).
+    Returns:
+        A list of job listings, where each listing is a dictionary containing job details.
+    """
+    # This is a placeholder implementation. You would need to implement the actual Naukri API calls here.
+    pass
     
 
 
