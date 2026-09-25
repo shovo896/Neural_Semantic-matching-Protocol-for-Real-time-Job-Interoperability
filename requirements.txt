@@ -3,3 +3,7 @@ openai
 pandas 
 groq 
 pymupdf 
+python-dotenv 
+pandas 
+apify-client 
+
