@@ -60,6 +60,7 @@ def ask_openai(prompt, model="gpt-oss", temperature=0.7, max_tokens=500):
 
 
 
+
     
     
 
