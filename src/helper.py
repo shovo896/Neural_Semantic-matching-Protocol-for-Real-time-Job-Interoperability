@@ -9,6 +9,7 @@ from openai import OpenAI
 load_dotenv() 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
+client = ApifyClient("APIFY_API_KEY")
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 
@@ -79,7 +80,7 @@ def fetch_linkedin_job(search_query, location="Bangladesh", rows=60):
     # This is a placeholder implementation. You would need to implement the actual LinkedIn API calls here.
    
 # Initialize the ApifyClient with your API token
-client = ApifyClient("<YOUR_API_TOKEN>")
+
 
 # Prepare the Actor input
 run_input = {
