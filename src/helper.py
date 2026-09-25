@@ -38,7 +38,7 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 
 
 
-def ask_openai(prompt, model="gpt-oss", temperature=0.7, max_tokens=500):
+def ask_openai(prompt, model="gpt-oss-128B", temperature=0.7, max_tokens=500):
     """
     Sends a prompt to the OpenAI API and returns the response.
 
