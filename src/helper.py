@@ -3,6 +3,8 @@ import stream
 import os 
 from dotenv import load_dotenv 
 
+ from apify_client import ApifyClient
+
 from openai import OpenAI 
 load_dotenv() 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -75,7 +77,49 @@ def fetch_linkedin_job(search_query, location="Bangladesh", rows=60):
         A list of job listings, where each listing is a dictionary containing job details.
     """
     # This is a placeholder implementation. You would need to implement the actual LinkedIn API calls here.
-    pass 
+   
+# Initialize the ApifyClient with your API token
+client = ApifyClient("<YOUR_API_TOKEN>")
+
+# Prepare the Actor input
+run_input = {
+    "cookies": None,
+    "userAgent": None,
+    "searchUrl": "https://www.linkedin.com/jobs/search/?keywords=&location=United%20States&locationId=&geoId=103644278&f_TPR=&f_C=1035&f_PP=104145663&f_JT=F&f_WT=3%2C2&f_SB2=21&position=1&pageNum=0",
+    "filters.keywords": None,
+    "filters.location": None,
+    "filters.geoId": None,
+    "filters.distance": None,
+    "filters.sortBy": None,
+    "filters.timePostedRange": None,
+    "filters.experience": None,
+    "filters.company": None,
+    "filters.jobType": None,
+    "filters.workplaceType": None,
+    "filters.salaryBucketV2": None,
+    "filters.industry": None,
+    "filters.function": None,
+    "filters.title": None,
+    "filters.populatedPlace": None,
+    "filters.commitments": None,
+    "filters.applyWithLinkedin": False,
+    "filters.earlyApplicant": False,
+    "filters.jobInYourNetwork": False,
+    "filters.verifiedJob": False,
+    "filters.workRemoteAllowed": False,
+    "filters.fairChanceEmployer": False,
+    "scrapeJobDetails": False,
+    "scrapeSkills": False,
+    "scrapeCompany": False,
+    "count": 25,
+}
+
+# Run the Actor and wait for it to finish
+run = client.actor("gdbRh93zn42kBYDyS").call(run_input=run_input)
+
+# Fetch and print Actor results from the run's dataset (if there are any)
+for item in client.dataset(run["defaultDatasetId"]).iterate_items():
+    print(item)
 
 
 def fetch_naukri_job(search_query, location="Bangladesh", rows=60):
