@@ -54,7 +54,8 @@ def ask_openai(prompt, model="gpt-oss-128B", temperature=0.7, max_tokens=500):
     response = client.chat.completions.create(
         model=model,
         messages=[{"role": "user", "content": prompt}], 
-        max_tokens=max_tokens
+        max_tokens=max_tokens,
+        temperature=temperature 
     )
     return response.choices[0].text.strip()
 
