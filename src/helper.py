@@ -2,7 +2,12 @@ import fitz
 import stream 
 import os 
 from dotenv import load_dotenv 
-load_dotenv()
+
+from openai import OpenAI 
+load_dotenv() 
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=OPENAI_API_KEY)
+
 
 '''def extract_text_from_pdf(uploaded_file):
     """
@@ -43,7 +48,7 @@ def ask_openai(prompt, model="gpt-oss", temperature=0.7, max_tokens=500):
     Returns:
         The response from the OpenAI API.
     """
-    import openai
+
     openai.api_key = os.getenv("OPENAI_API_KEY")
     response = openai.Completion.create(
         engine=model,
