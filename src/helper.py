@@ -29,3 +29,19 @@ load_dotenv()
     return text
 
 
+
+def ask_openai(prompt, model="gpt-oss", temperature=0.7, max_tokens=150):
+    """
+    Sends a prompt to the OpenAI API and returns the response.
+
+    Args:
+        prompt: The prompt to send to the API.
+        model: The model to use for the response.
+        temperature: The sampling temperature for the response.
+        max_tokens: The maximum number of tokens in the response.
+    Returns:
+        The response from the OpenAI API.
+    """
+
+
+
