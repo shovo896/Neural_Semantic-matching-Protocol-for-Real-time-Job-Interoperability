@@ -20,3 +20,5 @@ def extract_text_from_pdf(uploaded_file):
     except Exception as e: 
         print(f"Error extracting text from {uploaded_file}: {e}")
     return text
+
+
