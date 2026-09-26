@@ -135,8 +135,22 @@ def fetch_naukri_job(search_query, location="Bangladesh", rows=60):
         A list of job listings, where each listing is a dictionary containing job details.
     """
     # This is a placeholder implementation. You would need to implement the actual Naukri API calls here.
-    pass
     
+
+
+# Prepare the Actor input
+run_input = {
+    "searchUrls": ["https://www.naukri.com/it-jobs"],
+    "maxItems": 30,
+    "proxyConfiguration": { "useApifyProxy": False },
+}
+
+# Run the Actor and wait for it to finish
+run = client.actor("wsrn5gy5C4EDeYCcD").call(run_input=run_input)
+
+# Fetch and print Actor results from the run's dataset (if there are any)
+for item in client.dataset(run["defaultDatasetId"]).iterate_items():
+    print(item)
 
 
     
