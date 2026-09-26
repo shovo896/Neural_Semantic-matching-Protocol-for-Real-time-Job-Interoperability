@@ -22,3 +22,9 @@ async def fetch_naukri_jobs(listofkeywords):
     return fetch_naukri_job(listofkeywords, location="Bangladesh", rows=60)
 
 
+
+if __name__ == "__main__": 
+    mcp.run(transport="stdio") 
+    
+
+
