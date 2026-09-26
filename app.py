@@ -16,16 +16,16 @@ if uploaded_file :
         st.text_area("Extracted Text", text, height=300)
         
     with st.spinner("summarizing your resume...."): 
-        summary = ask_openai(f"Summarize the following resume text:\n{text}", model="gpt-oss-128B", temperature=0.7, max_tokens=500)
+        summary = ask_openai(f"Summarize the following resume text:\n{text}", model="openai/gpt-oss-120b", temperature=0.7, max_tokens=500)
         st.success("Resume summarized successfully!")
         
     with st.spinner("Finding skill gaps on your resume.... "):
-        skill_gaps = ask_openai(f"Identify skill gaps in the following resume text:\n{text}", model="gpt-oss-128B", temperature=0.7, max_tokens=500)
+        skill_gaps = ask_openai(f"Identify skill gaps in the following resume text:\n{text}", model="openai/gpt-oss-120b", temperature=0.7, max_tokens=500)
         st.success("Skill gaps identified successfully!")
         st.text_area("Identified Skill Gaps", skill_gaps, height=300)
         
     with st.spinner("suggest  a future roadmap to improve this persons career:"):
-        roadmap = ask_openai(f"Suggest a future roadmap to improve the career of the person based on the following resume text:\n{text}", model="gpt-oss-128B", temperature=0.7, max_tokens=500)
+        roadmap = ask_openai(f"Suggest a future roadmap to improve the career of the person based on the following resume text:\n{text}", model="openai/gpt-oss-120b", temperature=0.7, max_tokens=500)
         st.success("Future roadmap suggested successfully!")
         st.text_area("Suggested Future Roadmap", roadmap, height=300)
         
@@ -49,7 +49,7 @@ if uploaded_file :
     
     if st.button("Get job recommendations"): 
         with st.spinner("Fetching job recommendations..."): 
-            keywords = ask_openai(f"Extract relevant keywords from the following resume text:\n{text}", model="gpt-oss-128B", temperature=0.7, max_tokens=500)
+            keywords = ask_openai(f"Extract relevant keywords from the following resume text:\n{text}", model="openai/gpt-oss-120b", temperature=0.7, max_tokens=500)
             st.success("Keywords extracted successfully!")
             search_query = keywords.replace("\n", ", ").strip()
             
