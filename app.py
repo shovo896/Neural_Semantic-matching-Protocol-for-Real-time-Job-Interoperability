@@ -44,6 +44,12 @@ if uploaded_file :
     st.markdown(f"<div style='background-color: #f0f0f0; padding: 10px; border-radius: 5px;'>{roadmap}</div>", unsafe_allow_html=True)
     
     
+    
+    if st.button("Get job recommendations"): 
+        with st.spinner("Fetching job recommendations..."): 
+            keywords = ask_openai(f"Extract relevant keywords from the following resume text:\n{text}", model="gpt-oss-128B", temperature=0.7, max_tokens=500)
+            st.success("Keywords extracted successfully!")
+    
         
         
     
