@@ -6,4 +6,4 @@ pymupdf
 python-dotenv 
 pandas 
 apify-client 
-
+mcp<2

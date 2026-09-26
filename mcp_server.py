@@ -3,11 +3,8 @@ from src.job_api import fetch_linkedin_job, fetch_naukri_job
 
 
 mcp = FastMCP(
-    title="Job Search Application",
-    description="This application allows you to search for jobs, upload your resume, and get job recommendations based on your skills and experience.",
-    theme="light",
-    layout="wide",
-    favicon=":mag:",
+    name="Job Search Application",
+    instructions="Search LinkedIn and Naukri jobs using resume keywords.",
 )
 
 
@@ -26,5 +23,4 @@ async def fetch_naukri_jobs(listofkeywords):
 if __name__ == "__main__": 
     mcp.run(transport="stdio") 
     
-
 
