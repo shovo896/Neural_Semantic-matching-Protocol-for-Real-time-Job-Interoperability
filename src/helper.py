@@ -5,7 +5,10 @@ from dotenv import load_dotenv
 from openai import OpenAI
 
 load_dotenv()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(
+    api_key=os.getenv("OPENAI_API_KEY"),
+    base_url="https://openrouter.ai/api/v1",
+)
 
 
 def extract_text_from_pdf(uploaded_file):
@@ -17,7 +20,7 @@ def extract_text_from_pdf(uploaded_file):
     return text
 
 
-def ask_openai(prompt, model="gpt-oss-128B", temperature=0.7, max_tokens=500):
+def ask_openai(prompt, model="openai/gpt-oss-120b", temperature=0.7, max_tokens=500):
     """Send a prompt to the configured OpenAI API."""
     response = client.chat.completions.create(
         model=model,
