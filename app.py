@@ -34,16 +34,16 @@ if uploaded_file :
     
     st.markdown("----")
     st.header("Summary of Resume") 
-    st.markdown(f"<div style='background-color: #f0f0f0; padding: 10px; border-radius: 5px;'>{summary}</div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='background-color: #f0f0f0; color: #111827; padding: 10px; border-radius: 5px;'>{summary}</div>", unsafe_allow_html=True)
     
     
     st.markdown("----")
     st.header("Identified Skill Gaps")
-    st.markdown(f"<div style='background-color: #f0f0f0; padding: 10px; border-radius: 5px;'>{skill_gaps}</div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='background-color: #f0f0f0; color: #111827; padding: 10px; border-radius: 5px;'>{skill_gaps}</div>", unsafe_allow_html=True)
     
     st.markdown("----")
     st.header("Suggested Future Roadmap") 
-    st.markdown(f"<div style='background-color: #f0f0f0; padding: 10px; border-radius: 5px;'>{roadmap}</div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='background-color: #f0f0f0; color: #111827; padding: 10px; border-radius: 5px;'>{roadmap}</div>", unsafe_allow_html=True)
     
     
     
