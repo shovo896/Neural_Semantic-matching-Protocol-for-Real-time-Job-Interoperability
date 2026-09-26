@@ -54,6 +54,12 @@ if uploaded_file :
             search_query = keywords.replace("\n", ", ").strip()
             
         st.success(f"Extracted Keywords: {search_query}")
+        
+        
+        with st.spinner("fetching jobs from LinkedIn and Naukri ...."):
+            linkedin_jobs = search_jobs(search_query, location="Bangladesh", rows=60)
+            naukri_jobs = search_jobs(search_query, location="Bangladesh", rows=60)
+            st.success("Job recommendations fetched successfully!")
             
             
     
