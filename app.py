@@ -49,6 +49,9 @@ if uploaded_file :
         with st.spinner("Fetching job recommendations..."): 
             keywords = ask_openai(f"Extract relevant keywords from the following resume text:\n{text}", model="gpt-oss-128B", temperature=0.7, max_tokens=500)
             st.success("Keywords extracted successfully!")
+            search_query = keywords.replace("\n", ", ").strip() 
+            
+            
     
         
         
