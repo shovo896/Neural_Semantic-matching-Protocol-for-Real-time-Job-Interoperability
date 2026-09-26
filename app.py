@@ -1,4 +1,4 @@
-import streamlit as 
+import streamlit st
 from src.helper import extract_text_from_pdf ask_openai
 from scr.job_api import search_jobs 
 
