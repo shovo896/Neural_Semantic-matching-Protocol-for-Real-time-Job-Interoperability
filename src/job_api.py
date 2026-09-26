@@ -7,10 +7,10 @@ load_dotenv()
 client = ApifyClient(os.getenv("APIFY_API_KEY"))
 
 
-def fetch_linkedin_job(search_query, location="Bangladesh", rows=60):
+def fetch_linkedin_job(search_query, location="Bangladesh", rows=60, cookies=None):
     """Fetch LinkedIn job listings through the existing Apify actor."""
     run_input = {
-        "cookies": [],
+        "cookies": cookies or [],
         "userAgent": None,
         "searchUrl": "https://www.linkedin.com/jobs/search/?keywords=&location=United%20States&locationId=&geoId=103644278&f_TPR=&f_C=1035&f_PP=104145663&f_JT=F&f_WT=3%2C2&f_SB2=21&position=1&pageNum=0",
         "filters.keywords": search_query,

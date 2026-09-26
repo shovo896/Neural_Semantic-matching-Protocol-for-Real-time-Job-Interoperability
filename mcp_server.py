@@ -10,8 +10,8 @@ mcp = FastMCP(
 
 @mcp.tool()
 
-async def fetch_linkedin_jobs(listofkeywords):
-    return fetch_linkedin_job(listofkeywords, location="Bangladesh", rows=60)
+async def fetch_linkedin_jobs(listofkeywords: str, cookies: list[dict]):
+    return fetch_linkedin_job(listofkeywords, location="Bangladesh", rows=60, cookies=cookies)
 
 @mcp.tool()
 
@@ -23,4 +23,3 @@ async def fetch_naukri_jobs(listofkeywords):
 if __name__ == "__main__": 
     mcp.run(transport="stdio") 
     
-
