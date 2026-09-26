@@ -23,12 +23,12 @@ def extract_text_from_pdf(uploaded_file):
 def ask_openai(prompt, model="openai/gpt-oss-120b", temperature=0.7, max_tokens=500):
     """Send a prompt to the configured OpenAI API."""
     prompt = prompt[:100_000]
+    max_tokens = max(max_tokens, 2_000)
     response = client.chat.completions.create(
         model=model,
         messages=[{"role": "user", "content": prompt}],
         max_tokens=max_tokens,
         temperature=temperature,
-        extra_body={"reasoning": {"enabled": False}},
     )
     content = response.choices[0].message.content
     return content.strip() if content else "No final response was generated. Please try again."
