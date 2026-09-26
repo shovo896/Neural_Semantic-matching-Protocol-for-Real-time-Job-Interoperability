@@ -28,5 +28,7 @@ def ask_openai(prompt, model="openai/gpt-oss-120b", temperature=0.7, max_tokens=
         messages=[{"role": "user", "content": prompt}],
         max_tokens=max_tokens,
         temperature=temperature,
+        extra_body={"reasoning": {"enabled": False}},
     )
-    return response.choices[0].message.content.strip()
+    content = response.choices[0].message.content
+    return content.strip() if content else "No final response was generated. Please try again."
