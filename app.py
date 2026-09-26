@@ -1,5 +1,7 @@
 import streamlit as 
 from src.helper import extract_text_from_pdf ask_openai
+from scr.job_api import search_jobs 
+
 
 
 
@@ -49,7 +51,9 @@ if uploaded_file :
         with st.spinner("Fetching job recommendations..."): 
             keywords = ask_openai(f"Extract relevant keywords from the following resume text:\n{text}", model="gpt-oss-128B", temperature=0.7, max_tokens=500)
             st.success("Keywords extracted successfully!")
-            search_query = keywords.replace("\n", ", ").strip() 
+            search_query = keywords.replace("\n", ", ").strip()
+            
+        st.success(f"Extracted Keywords: {search_query}")
             
             
     
