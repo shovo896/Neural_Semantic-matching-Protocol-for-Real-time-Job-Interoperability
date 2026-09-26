@@ -22,6 +22,29 @@ if uploaded_file :
         st.success("Skill gaps identified successfully!")
         st.text_area("Identified Skill Gaps", skill_gaps, height=300)
         
+    with st.spinner("suggest  a future roadmap to improve this persons career:",max_tokens=400):
+        roadmap = ask_openai(f"Suggest a future roadmap to improve the career of the person based on the following resume text:\n{text}", model="gpt-oss-128B", temperature=0.7, max_tokens=500)
+        st.success("Future roadmap suggested successfully!")
+        st.text_area("Suggested Future Roadmap", roadmap, height=300)
+        
+        
+    #display nicely formatter results 
+    
+    st.markdown("----")
+    st.header("Summary of Resume") 
+    st.markdown(f"<div style='background-color: #f0f0f0; padding: 10px; border-radius: 5px;'>{summary}</div>", unsafe_allow_html=True)
+    
+    
+    st.markdown("----")
+    st.header("Identified Skill Gaps")
+    st.markdown(f"<div style='background-color: #f0f0f0; padding: 10px; border-radius: 5px;'>{skill_gaps}</div>", unsafe_allow_html=True)
+    
+    st.markdown("----")
+    st.header("Suggested Future Roadmap") 
+    st.markdown(f"<div style='background-color: #f0f0f0; padding: 10px; border-radius: 5px;'>{roadmap}</div>", unsafe_allow_html=True)
+    
+    
+        
         
     
         
