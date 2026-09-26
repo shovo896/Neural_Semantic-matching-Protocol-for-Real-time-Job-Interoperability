@@ -62,6 +62,32 @@ if uploaded_file :
             st.success("Job recommendations fetched successfully!")
             
             
+        st.markdown("----") 
+        st.header("Job Recommendations from LinkedIn")
+        
+        if linkedin_jobs:
+            for job in linkedin_jobs:
+                st.subheader(job['title'])
+                st.markdown(f"**Company:** {job['company']}")
+                st.markdown(f"**Location:** {job['location']}")
+                st.markdown(f"**Link:** [Apply Here]({job['link']})")
+                st.markdown("----")
+        else:
+            st.info("No job recommendations found on LinkedIn.")
+            
+        if naukri_jobs:
+            st.markdown("----") 
+            st.header("Job Recommendations from Naukri")
+            for job in naukri_jobs:
+                st.subheader(job['title'])
+                st.markdown(f"**Company:** {job['company']}")
+                st.markdown(f"**Location:** {job['location']}")
+                st.markdown(f"**Link:** [Apply Here]({job['link']})")
+                st.markdown("----")
+        else:
+            st.info("No job recommendations found on Naukri.")
+            
+            
     
         
         
