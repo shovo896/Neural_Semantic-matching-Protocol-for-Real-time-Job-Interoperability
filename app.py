@@ -1,6 +1,6 @@
 import streamlit as  st
-from src.helper import extract_text_from_pdf ask_openai
-from scr.job_api import search_jobs 
+from src.helper import extract_text_from_pdf, ask_openai
+from src.job_api import fetch_linkedin_job, fetch_naukri_job
 
 
 
@@ -24,7 +24,7 @@ if uploaded_file :
         st.success("Skill gaps identified successfully!")
         st.text_area("Identified Skill Gaps", skill_gaps, height=300)
         
-    with st.spinner("suggest  a future roadmap to improve this persons career:",max_tokens=400):
+    with st.spinner("suggest  a future roadmap to improve this persons career:"):
         roadmap = ask_openai(f"Suggest a future roadmap to improve the career of the person based on the following resume text:\n{text}", model="gpt-oss-128B", temperature=0.7, max_tokens=500)
         st.success("Future roadmap suggested successfully!")
         st.text_area("Suggested Future Roadmap", roadmap, height=300)
@@ -57,8 +57,8 @@ if uploaded_file :
         
         
         with st.spinner("fetching jobs from LinkedIn and Naukri ...."):
-            linkedin_jobs = search_jobs(search_query, location="Bangladesh", rows=60)
-            naukri_jobs = search_jobs(search_query, location="Bangladesh", rows=60)
+            linkedin_jobs = fetch_linkedin_job(search_query, location="Bangladesh", rows=60)
+            naukri_jobs = fetch_naukri_job(search_query, location="Bangladesh", rows=60)
             st.success("Job recommendations fetched successfully!")
             
             
