@@ -2,7 +2,7 @@
 import os 
 from dotenv import load_dotenv 
 
- from apify_client import ApifyClient
+from apify_client import ApifyClient
 
 from openai import OpenAI 
 load_dotenv() 
